@@ -1,21 +1,63 @@
 public class OOPSBannerApp {
 
-    public static void main(String[] args) {
+    
+    public static String pad(String s, int width) {
+        return String.format("%-" + width + "s", s);
+    }
 
-        // Array declaration + initialization together
-        String[] banner = {
-
-            String.join("  ", " ***** ", " ***** ", "****** ", " ***** "),
-            String.join("  ", "*     *", "*     *", "*     *", "*     *"),
-            String.join("  ", "*     *", "*     *", "****** ", "*"),
-            String.join("  ", "*     *", "*     *", "*      ", " ***** "),
-            String.join("  ", "*     *", "*     *", "*      ", "      *"),
-            String.join("  ", "*     *", "*     *", "*      ", "*     *"),
-            String.join("  ", " ***** ", " ***** ", "*      ", " ***** ")
-
+    
+    public static String[] getOPattern() {
+        return new String[] {
+            "  *  ",
+            " * * ",
+            "*   *",
+            "*   *",
+            "*   *",
+            " * * ",
+            "  *  "
         };
-        for (String line : banner) {
-            System.out.println(line);
+    }
+
+    
+    public static String[] getPPattern() {
+        return new String[] {
+            "** ",
+            "*  * ",
+            "*  * ",
+            "** ",
+            "**     ",
+            "**     ",
+            "**     "
+        };
+    }
+
+    
+    public static String[] getSPattern() {
+        return new String[] {
+            "*** ",
+            "**     ",
+            "**     ",
+            " *   ",
+            "   **  ",
+            "   **  ",
+            "*** "
+        };
+    }
+
+    public static void main(String[] args) {
+        String[] oPattern = getOPattern();
+        String[] pPattern = getPPattern();
+        String[] sPattern = getSPattern();
+
+        int width = 7;
+
+        for (int i = 0; i < oPattern.length; i++) {
+            System.out.println(
+                pad(oPattern[i], width) + "  " +
+                pad(oPattern[i], width) + "  " +
+                pad(pPattern[i], width) + "  " +
+                pad(sPattern[i], width)
+            );
         }
     }
 }
